@@ -4,7 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Reilly, Holly, Aileen, Kyle, Ava } from "./pages";
+import { ItemPage } from "./pages/ItemPage";
+import "./css/fonts.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,11 +13,11 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="reilly" element={<Reilly />} />
-        <Route path="holly" element={<Holly />} />
-        <Route path="aileen" element={<Aileen />} />
-        <Route path="kyle" element={<Kyle />} />
-        <Route path="Ava" element={<Ava />} />
+        <Route path="/reilly" element={<ItemPage name="reilly" />} />
+        <Route path="/holly" element={<ItemPage name="holly" />} />
+        <Route path="/aileen" element={<ItemPage name="aileen" />} />
+        <Route path="/kyle" element={<ItemPage name="kyle" />} />
+        <Route path="/Ava" element={<ItemPage name="ava" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

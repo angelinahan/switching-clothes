@@ -1,16 +1,16 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import img1 from "./image/covers/1.png";
 import img2 from "./image/covers/2.png";
 import img3 from "./image/covers/3.png";
-import { ItemPage } from "./pages/Holly";
+import { AppHeader } from "./components/AppHeader";
 
-const HeaderDiv = styled.div`
+export const AppContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 2% 4%;
 `;
 
 const ContentContainer = styled.div`
@@ -18,11 +18,10 @@ const ContentContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const ItemLink = styled(Link)``;
-
 const ItemContainer = styled.div`
-  width: 30%;
+  width: 25%;
   margin: 1%;
+  padding: 1.5% 3%;
   border: 2px solid olive;
 
   &:hover {
@@ -38,11 +37,8 @@ const CoverImg = styled.img`
 
 const App = () => {
   return (
-    <div className="App">
-      <HeaderDiv>
-        <h1>A Day in Your Clothes</h1>
-        <p>~ brief explaination of the project here ~</p>
-      </HeaderDiv>
+    <AppContainer>
+      <AppHeader />
       <ContentContainer>
         <ItemContainer>
           <Link to="reilly">
@@ -80,7 +76,7 @@ const App = () => {
           </Link>
         </ItemContainer>
       </ContentContainer>
-    </div>
+    </AppContainer>
   );
 };
 

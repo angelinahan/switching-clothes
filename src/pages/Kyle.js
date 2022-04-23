@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import holly from "../audio/holly.m4a";
+import holly from "../audio/holly.mp3";
 
 const Kyle = () => {
   return (
