@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -12,7 +12,6 @@ import {
 } from "../components/SharedComponents";
 import { useModal } from "react-modal-hook";
 import { StyledReactModal } from "../components/SharedComponents";
-import { Link } from "react-router-dom";
 import reilly from "../audio/reilly.mp3";
 import ang from "../audio/me-reilly.mp3";
 import reillyZine from "../zines/reilly-zine.pdf";

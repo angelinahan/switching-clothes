@@ -1,14 +1,145 @@
-import styled from "styled-components";
-import holly from "../audio/holly.mp3";
+import { useRef } from "react";
+import SinglePage from "../components/pdf/SinglePage";
+import {
+  TitleH1,
+  PersonPageContainer,
+  Row,
+  PersonImage,
+  ColGroup,
+  Audio,
+  Transcript,
+  TranscriptLink,
+} from "../components/SharedComponents";
+import { useModal } from "react-modal-hook";
+import { StyledReactModal } from "../components/SharedComponents";
+import kyle from "../audio/kyle.mp3";
+import ang from "../audio/me-kyle.mp3";
+import kyleZine from "../zines/kyle-zine.pdf";
+import angZine from "../zines/angelina-kyle-zine.pdf";
+import img1 from "../image/kyle/4.1.jpg";
+import img2 from "../image/kyle/4.2.jpg";
 
 const Kyle = () => {
+  const [showModal1, hideModal1] = useModal(() => (
+    <StyledReactModal isOpen>
+      <SinglePage pdf={kyleZine} />
+      <button onClick={hideModal1}>Close modal</button>
+    </StyledReactModal>
+  ));
+
+  const [showModal2, hideModal2] = useModal(() => (
+    <StyledReactModal isOpen>
+      <SinglePage pdf={angZine} />
+      <button onClick={hideModal2}>Close modal</button>
+    </StyledReactModal>
+  ));
+
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+
+  const scrollToTranscript1 = () => {
+    if (ref1 && ref1.current) {
+      ref1.current.scrollIntoView();
+    }
+  };
+  const scrollToTranscript2 = () => {
+    if (ref2 && ref2.current) {
+      ref2.current.scrollIntoView();
+    }
+  };
+
   return (
-    <div>
-      <h1>01. Reilly</h1>
-      <audio controls>
-        <source src={holly} type="audio/m4a"></source>
-      </audio>
-    </div>
+    <PersonPageContainer>
+      <Row>
+        <TitleH1>02. Kyle</TitleH1>
+      </Row>
+      <Row>
+        <ColGroup>
+          <Audio controls>
+            <source src={kyle} type="audio/mpeg"></source>
+          </Audio>
+          <TranscriptLink onClick={scrollToTranscript1}>
+            jump to transcript
+          </TranscriptLink>
+          <PersonImage src={img2} onClick={showModal1} />
+          <Transcript ref={ref1}>
+            Angelina: I’m curious how you felt in West Village H among the CS
+            people, compared to the people in your film class.
+            <br />
+            Kyle: Erm…I dunno, I felt very like self aware in both classes, but
+            I guess just in different ways. Because in my film class, it’s like
+            a small class, so, I dunno, I was just curious if anyone would
+            notice that I was dressed differently just cuz there weren’t that
+            many people in the room. Whereas in the lab of West Village H where
+            maybe that’s where I would have felt more out of place, it’s also a
+            less social atmosphere where I feel like you don’t really notice
+            other people as much. And so…I feel like that counterbalanced some
+            of the feeling of out-of-place-ness, because literally just no one
+            talks to you, and you just kind of go and you sit down and you do
+            work. And you don’t really interact with other people. So even
+            though I guess I felt more different or out of place there, it came
+            up less in my mind because I wasn’t really interacting with anyone
+            there. I guess the other thing that came up in my film class was I
+            feel like I make a conscious effort to like, wear a halfway decent
+            outfit to that class usually, because I’m intimidated by the other
+            people in the class and want to make an effort at seeming like I
+            have my shit together in, you know, like a humanities-centric
+            stylistic way. Um, so yeah, I guess just generally I’m more
+            conscious of myself in that class, so I was curious, maybe, what
+            other people thought of what I was wearing.
+          </Transcript>
+        </ColGroup>
+        <ColGroup>
+          <Audio controls>
+            <source src={ang} type="audio/mpeg"></source>
+          </Audio>
+          <TranscriptLink onClick={scrollToTranscript2}>
+            jump to transcript
+          </TranscriptLink>
+          <PersonImage src={img1} onClick={showModal2} />
+          <Transcript ref={ref2}>
+            Angelina: Like I know you love Billy Joel a lot
+            <br />
+            Kyle: Mm-hmm.
+            <br />
+            Angelina: So I feel like it makes sense for you to wear it, but
+            yeah. Me wearing it was weird because I was like, I do not like
+            baseball or Billy Joel enough to-
+            <br />
+            Kyle: Angelina hates Billy Joel.
+            <br />
+            Angelina: I don’t hate Billy Joel! I just think that… I don’t love
+            Billy Joel to the point where I would wear his name on my shirt very
+            big. And it also felt like something that …like I was telling you
+            before…I feel like in my mind, Billy Joel feels like the music of a
+            generation above us, and specifically like, I dunno white people
+            music? <br />
+            Kyle: No I mean that’s very fair because it’s definitely an interest
+            I got from my mom, who is a 57 year old white woman.
+            <br />
+            Angelina: Yeah. Which is like - I appreciate Billy Joel, but I do
+            not look like the kind of person who wear this, as a young Asian
+            woman, so [laughs]
+            <br />
+            Kyle: [overlapping] No, makes a lot of sense. <br />
+            Angelina: So that was a really weird disconnect for me [laughs]
+            <br />
+            Kyle: It’s definitely like, old white boomers from New York and New
+            Jersey.
+            <br />
+            Angelina: [laughs] Um, but very cool, it was definitely very
+            different from I usually wear, so I appreciated that. And your pants
+            fit so well! <br />
+            Kyle: [laughs] I’m very glad about that.
+            <br />
+            Angelina: [overlapping] I literally want to steal them. They’re so
+            good.
+            <br />
+          </Transcript>
+        </ColGroup>
+        <ColGroup></ColGroup>
+      </Row>
+    </PersonPageContainer>
   );
 };
 
