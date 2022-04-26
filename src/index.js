@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ItemPage } from "./pages/ItemPage";
+import { AboutPage } from "./pages/AboutPage";
 import "./css/fonts.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,7 +18,8 @@ root.render(
         <Route path="/holly" element={<ItemPage name="holly" />} />
         <Route path="/aileen" element={<ItemPage name="aileen" />} />
         <Route path="/kyle" element={<ItemPage name="kyle" />} />
-        <Route path="/Ava" element={<ItemPage name="ava" />} />
+        <Route path="/ava" element={<ItemPage name="ava" />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

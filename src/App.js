@@ -6,21 +6,28 @@ import img1 from "./image/covers/1.png";
 import img2 from "./image/covers/2.png";
 import img3 from "./image/covers/3.png";
 import { AppHeader } from "./components/AppHeader";
-
-export const AppContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2% 4%;
-`;
+import {
+  AppContainer,
+  LowkeyLink,
+  TitleH2,
+} from "./components/SharedComponents";
 
 const ContentContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const ContentRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  width: 100%;
 `;
 
 const ItemContainer = styled.div`
   width: 25%;
-  margin: 1%;
   padding: 1.5% 3%;
   border: 2px solid olive;
 
@@ -40,41 +47,45 @@ const App = () => {
     <AppContainer>
       <AppHeader />
       <ContentContainer>
-        <ItemContainer>
-          <Link to="reilly">
-            <h2>01. Reilly</h2>
-            <CoverImg src={img1} alt="covers" />
-          </Link>
-        </ItemContainer>
-        <ItemContainer>
-          <Link to="holly">
-            <h2>02. Holly</h2>
-            <CoverImg src={img2} alt="covers" />
-          </Link>
-        </ItemContainer>
-        <ItemContainer>
-          <Link to="aileen">
-            <h2>03. Aileen</h2>
-            <CoverImg src={img3} alt="covers" />
-          </Link>
-        </ItemContainer>
-        <ItemContainer>
-          <Link to="kyle">
-            <h2>04. Kyle</h2>
-            <CoverImg src={img1} alt="covers" />
-          </Link>
-        </ItemContainer>
-        <ItemContainer>
-          <Link to="ava">
-            <h2>05. Ava</h2>
-            <CoverImg src={img2} alt="covers" />
-          </Link>
-        </ItemContainer>
-        <ItemContainer>
-          <Link to="final-thoughts">
-            <h2>final thoughts</h2>
-          </Link>
-        </ItemContainer>
+        <ContentRow>
+          <ItemContainer>
+            <LowkeyLink to="reilly">
+              <TitleH2>01. Reilly</TitleH2>
+              <CoverImg src={img1} alt="covers" />
+            </LowkeyLink>
+          </ItemContainer>
+          <ItemContainer>
+            <LowkeyLink to="holly">
+              <TitleH2>02. Holly</TitleH2>
+              <CoverImg src={img2} alt="covers" />
+            </LowkeyLink>
+          </ItemContainer>
+          <ItemContainer>
+            <LowkeyLink to="aileen">
+              <TitleH2>03. Aileen</TitleH2>
+              <CoverImg src={img3} alt="covers" />
+            </LowkeyLink>
+          </ItemContainer>
+        </ContentRow>
+        <ContentRow>
+          <ItemContainer>
+            <LowkeyLink to="kyle">
+              <TitleH2>04. Kyle</TitleH2>
+              <CoverImg src={img1} alt="covers" />
+            </LowkeyLink>
+          </ItemContainer>
+          <ItemContainer>
+            <LowkeyLink to="ava">
+              <TitleH2>05. Ava</TitleH2>
+              <CoverImg src={img2} alt="covers" />
+            </LowkeyLink>
+          </ItemContainer>
+          <ItemContainer>
+            <LowkeyLink to="final-thoughts">
+              <TitleH2>Epilogue: Angelina</TitleH2>
+            </LowkeyLink>
+          </ItemContainer>
+        </ContentRow>
       </ContentContainer>
     </AppContainer>
   );

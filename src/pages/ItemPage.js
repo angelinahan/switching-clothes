@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { AppHeader } from "../components/AppHeader";
 import { Sidebar } from "../components/Sidebar";
 import { Reilly, Holly, Aileen, Kyle, Ava } from "./index";
-import { AppContainer } from "../App";
+import { AppContainer } from "../components/SharedComponents";
 
 const ItemPageContainer = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const ItemPage = ({ name }) => {

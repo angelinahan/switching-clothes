@@ -1,18 +1,23 @@
 import styled from "styled-components";
+import { LowkeyLink } from "./SharedComponents";
 
 const HeaderDiv = styled.div`
   display: flex;
-  flex-direction: column;
   font-family: "Space Mono";
   width: 100%;
   border-bottom: 2px solid olive;
+  justify-content: space-between;
 `;
 
 const AppHeader = () => {
   return (
     <HeaderDiv>
-      <h1>A Day in Your Clothes</h1>
-      <p>~ brief explaination of the project here ~</p>
+      <LowkeyLink to="/">
+        <h1>A Day in Your Clothes</h1>
+      </LowkeyLink>
+      <LowkeyLink to="/about">
+        <h2>about the project</h2>
+      </LowkeyLink>
     </HeaderDiv>
   );
 };
