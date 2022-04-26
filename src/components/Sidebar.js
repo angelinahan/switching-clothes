@@ -1,30 +1,43 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { LowkeyLink } from "./SharedComponents";
 
 const SidebarDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 20%;
   font-family: "Space Mono";
-  margin-top: 20px;
+  flex-shrink: 0;
+  padding-top: 20px;
+  border-right: 2px solid olive;
 `;
 
 const SidebarLink = styled(Link)`
-  font-size: 28px;
   color: olive;
-  margin: 10px;
   font-weight: bold;
 `;
 
 const Sidebar = () => {
   return (
     <SidebarDiv>
-      <SidebarLink to="/">back to home</SidebarLink>
-      <SidebarLink to="/reilly">01. Reilly</SidebarLink>
-      <SidebarLink to="/holly">02. Holly</SidebarLink>
-      <SidebarLink to="/aileen">03. Aileen</SidebarLink>
-      <SidebarLink to="/kyle">04. Kyle</SidebarLink>
-      <SidebarLink to="/ava">05. Ava</SidebarLink>
+      <LowkeyLink to="/">
+        <h2>back to home</h2>
+      </LowkeyLink>
+      <LowkeyLink to="/reilly">
+        <h2>01. Reilly</h2>
+      </LowkeyLink>
+      <LowkeyLink to="/holly">
+        <h2>02. Holly</h2>
+      </LowkeyLink>
+      <LowkeyLink to="/aileen">
+        <h2>03. Aileen</h2>
+      </LowkeyLink>
+      <LowkeyLink to="/kyle">
+        <h2>04. Kyle</h2>
+      </LowkeyLink>
+      <LowkeyLink to="/ava">
+        <h2>05. Ava</h2>
+      </LowkeyLink>
     </SidebarDiv>
   );
 };

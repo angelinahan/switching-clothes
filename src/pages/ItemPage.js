@@ -7,6 +7,8 @@ import { AppContainer } from "../components/SharedComponents";
 const ItemPageContainer = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  padding: 30px 0;
 `;
 
 const ItemPage = ({ name }) => {

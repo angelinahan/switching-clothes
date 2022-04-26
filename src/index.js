@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { ModalProvider } from "react-modal-hook";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -11,17 +12,19 @@ import "./css/fonts.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/reilly" element={<ItemPage name="reilly" />} />
-        <Route path="/holly" element={<ItemPage name="holly" />} />
-        <Route path="/aileen" element={<ItemPage name="aileen" />} />
-        <Route path="/kyle" element={<ItemPage name="kyle" />} />
-        <Route path="/ava" element={<ItemPage name="ava" />} />
-        <Route path="/about" element={<AboutPage />} />
-      </Routes>
-    </BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/reilly" element={<ItemPage name="reilly" />} />
+          <Route path="/holly" element={<ItemPage name="holly" />} />
+          <Route path="/aileen" element={<ItemPage name="aileen" />} />
+          <Route path="/kyle" element={<ItemPage name="kyle" />} />
+          <Route path="/ava" element={<ItemPage name="ava" />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </BrowserRouter>
+    </ModalProvider>
   </React.StrictMode>
 );
 
