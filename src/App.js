@@ -5,6 +5,8 @@ import styled from "styled-components";
 import img1 from "./image/covers/1.png";
 import img2 from "./image/covers/2.png";
 import img3 from "./image/covers/3.png";
+import img4 from "./image/covers/4.png";
+import img5 from "./image/covers/5.png";
 import { AppHeader } from "./components/AppHeader";
 import {
   AppContainer,
@@ -28,8 +30,6 @@ const ContentRow = styled.div`
 
 const ItemContainer = styled.div`
   width: 25%;
-  padding: 1.5% 3%;
-  border: 2px solid olive;
 
   &:hover {
     transform: rotate(2deg);
@@ -71,13 +71,13 @@ const App = () => {
           <ItemContainer>
             <LowkeyLink to="kyle">
               <TitleH2>04. Kyle</TitleH2>
-              <CoverImg src={img1} alt="covers" />
+              <CoverImg src={img4} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
             <LowkeyLink to="ava">
               <TitleH2>05. Ava</TitleH2>
-              <CoverImg src={img2} alt="covers" />
+              <CoverImg src={img5} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
