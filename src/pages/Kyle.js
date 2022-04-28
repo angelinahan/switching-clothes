@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -10,7 +10,6 @@ import {
   Transcript,
   TranscriptLink,
 } from "../components/SharedComponents";
-import { useModal } from "react-modal-hook";
 import { StyledReactModal } from "../components/SharedComponents";
 import kyle from "../audio/kyle.mp3";
 import ang from "../audio/me-kyle.mp3";
@@ -20,19 +19,8 @@ import img1 from "../image/kyle/4.1.jpg";
 import img2 from "../image/kyle/4.2.jpg";
 
 const Kyle = () => {
-  const [showModal1, hideModal1] = useModal(() => (
-    <StyledReactModal isOpen>
-      <SinglePage pdf={kyleZine} />
-      <button onClick={hideModal1}>Close modal</button>
-    </StyledReactModal>
-  ));
-
-  const [showModal2, hideModal2] = useModal(() => (
-    <StyledReactModal isOpen>
-      <SinglePage pdf={angZine} />
-      <button onClick={hideModal2}>Close modal</button>
-    </StyledReactModal>
-  ));
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
   const ref1 = useRef(null);
   const ref2 = useRef(null);
@@ -51,8 +39,24 @@ const Kyle = () => {
   return (
     <PersonPageContainer>
       <Row>
-        <TitleH1>02. Kyle</TitleH1>
+        <TitleH1>03. Kyle</TitleH1>
       </Row>
+      <StyledReactModal
+        isOpen={showModal1}
+        onRequestClose={() => setShowModal1(false)}
+        shouldCloseOnOverlayClick={true}
+      >
+        <SinglePage pdf={kyleZine} />
+        <button onClick={() => setShowModal1(false)}>Hide modal</button>
+      </StyledReactModal>
+      <StyledReactModal
+        isOpen={showModal2}
+        onRequestClose={() => setShowModal2(false)}
+        shouldCloseOnOverlayClick={true}
+      >
+        <SinglePage pdf={angZine} />
+        <button onClick={() => setShowModal2(false)}>Hide modal</button>
+      </StyledReactModal>
       <Row>
         <ColGroup>
           <Audio controls>
@@ -61,7 +65,7 @@ const Kyle = () => {
           <TranscriptLink onClick={scrollToTranscript1}>
             jump to transcript
           </TranscriptLink>
-          <PersonImage src={img2} onClick={showModal1} />
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
           <Transcript ref={ref1}>
             Angelina: I’m curious how you felt in West Village H among the CS
             people, compared to the people in your film class.
@@ -96,7 +100,7 @@ const Kyle = () => {
           <TranscriptLink onClick={scrollToTranscript2}>
             jump to transcript
           </TranscriptLink>
-          <PersonImage src={img1} onClick={showModal2} />
+          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
           <Transcript ref={ref2}>
             Angelina: Like I know you love Billy Joel a lot
             <br />

@@ -55,7 +55,7 @@ export const StyledReactModal = styled(ReactModal)`
   display: flex;
   flex-direction: column;
   width: fit-content;
-  height: 100vh;
+  max-height: 80vh;
   margin: 10vh auto;
 `;
 

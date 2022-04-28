@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -10,7 +10,7 @@ import {
   Transcript,
   TranscriptLink,
 } from "../components/SharedComponents";
-import { useModal } from "react-modal-hook";
+import Modal from "react-modal";
 import { StyledReactModal } from "../components/SharedComponents";
 import reilly from "../audio/reilly.mp3";
 import ang from "../audio/me-reilly.mp3";
@@ -18,22 +18,14 @@ import reillyZine from "../zines/reilly-zine.pdf";
 import angZine from "../zines/angelina-reilly-zine.pdf";
 import img1 from "../image/reilly/1.1.jpg";
 import img2 from "../image/reilly/1.2.jpg";
+import { PDFButton } from "../components/pdf/SinglePage";
 
 const Reilly = () => {
-  const [showRModal, hideRModal] = useModal(() => (
-    <StyledReactModal isOpen>
-      <SinglePage pdf={reillyZine} />
-      <button onClick={hideRModal}>Hide modal</button>
-    </StyledReactModal>
-  ));
+  Modal.setAppElement("#root");
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
-  const [showAModal, hideAModal] = useModal(() => (
-    <StyledReactModal isOpen>
-      <SinglePage pdf={angZine} />
-      <button onClick={hideAModal}>Hide modal</button>
-    </StyledReactModal>
-  ));
-
+  //Refs to help scroll to the transcript
   const ref1 = useRef(null);
   const ref2 = useRef(null);
 
@@ -53,6 +45,26 @@ const Reilly = () => {
       <Row>
         <TitleH1>01. Reilly</TitleH1>
       </Row>
+      <StyledReactModal
+        isOpen={showModal1}
+        onAfterOpen={() => (document.body.style.overflow = "hidden")}
+        onRequestClose={() => {
+          document.body.removeAttribute("style");
+          setShowModal1(false);
+        }}
+        shouldCloseOnOverlayClick={true}
+      >
+        <PDFButton onClick={() => setShowModal1(false)}>CLOSE X</PDFButton>
+        <SinglePage pdf={reillyZine} />
+      </StyledReactModal>
+      <StyledReactModal
+        isOpen={showModal2}
+        onRequestClose={() => setShowModal2(false)}
+        shouldCloseOnOverlayClick={true}
+      >
+        <SinglePage pdf={angZine} />
+        <button onClick={() => setShowModal2(false)}>Hide modal</button>
+      </StyledReactModal>
       <Row>
         <ColGroup>
           <Audio controls>
@@ -61,7 +73,7 @@ const Reilly = () => {
           <TranscriptLink onClick={scrollToTranscript1}>
             jump to transcript
           </TranscriptLink>
-          <PersonImage src={img2} onClick={showRModal} />
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
           <Transcript ref={ref1}>
             Reilly: When you first brought up the topic of clothes-switching, it
             made me immediately think, “Oh, what is my sense of style?”. I don’t
@@ -86,7 +98,7 @@ const Reilly = () => {
           <TranscriptLink onClick={scrollToTranscript2}>
             jump to transcript
           </TranscriptLink>
-          <PersonImage src={img1} onClick={showAModal} />
+          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
           <Transcript ref={ref2}>
             Angelina: Sometimes with clothes I purposefully pick something that
             looks, you know, “artsy” or “creative” when I go meet people who I
