@@ -3,6 +3,7 @@ import { Document, Page } from "react-pdf";
 import styled from "styled-components";
 import "./pdf.css";
 import { useWindowHeight } from "@wojtekmaj/react-hooks";
+import { PDFButton } from "../SharedComponents";
 
 const PageContainer = styled.div`
   max-height: 90vh;
@@ -22,26 +23,6 @@ const MyPage = styled(Page)`
 
 const PageNumber = styled.p`
   font-weight: bold;
-`;
-
-export const PDFButton = styled.button`
-  width: 100px;
-  border-radius: 10px;
-  border: 2px solid black;
-  background-color: white;
-  margin: 0 20px 20px 0;
-  padding: 5px;
-  font-weight: bold;
-  font-family: "Space Mono", sans-serif;
-  align-self: flex-end;
-  flex-shrink: 1;
-  :hover:enabled {
-    color: white;
-    background-color: black;
-  }
-  :disabled {
-    border: 2px solid lightgray;
-  }
 `;
 
 /// https://levelup.gitconnected.com/displaying-pdf-in-react-app-6e9d1fffa1a9

@@ -26,14 +26,17 @@ const ContentRow = styled.div`
   justify-content: space-between;
   margin: 20px 0px;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 const ItemContainer = styled.div`
-  width: 25%;
-
+  width: 30%;
   &:hover {
     transform: rotate(2deg);
     transition: transform 0.2s;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 45%;
   }
 `;
 
@@ -66,8 +69,6 @@ const App = () => {
               <CoverImg src={img3} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
-        </ContentRow>
-        <ContentRow>
           <ItemContainer>
             <LowkeyLink to="kyle">
               <TitleH2>04. Kyle</TitleH2>

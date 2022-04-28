@@ -7,6 +7,10 @@ const HeaderDiv = styled.div`
   width: 100%;
   border-bottom: 2px solid olive;
   justify-content: space-between;
+  align-items: baseline;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const AppHeader = () => {

@@ -10,6 +10,9 @@ const SidebarDiv = styled.div`
   flex-shrink: 0;
   padding-top: 20px;
   border-right: 2px solid olive;
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const SidebarLink = styled(Link)`

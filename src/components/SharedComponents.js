@@ -11,8 +11,10 @@ export const AppContainer = styled.div`
 export const PersonPageContainer = styled.div`
   display: flex;
   flex-direction: column;
-  //font-family: "Inter", sans-serif;
   width: 70%;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Audio = styled.audio`
@@ -38,6 +40,9 @@ export const ColGroup = styled.div`
   display: flex;
   flex-direction: column;
   width: 45%;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const PersonImage = styled.img`
@@ -45,10 +50,16 @@ export const PersonImage = styled.img`
   margin: 20px 0;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const Transcript = styled.p`
   width: 80%;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 export const StyledReactModal = styled(ReactModal)`
@@ -75,5 +86,25 @@ export const LowkeyLink = styled(Link)`
   :hover {
     text-decoration: underline;
     transition: text-decoration 1s ease-in-out;
+  }
+`;
+
+export const PDFButton = styled.button`
+  width: 100px;
+  border-radius: 10px;
+  border: 2px solid black;
+  background-color: white;
+  margin: 0 20px 20px 0;
+  padding: 5px;
+  font-weight: bold;
+  font-family: "Space Mono", sans-serif;
+  align-self: flex-end;
+  flex-shrink: 1;
+  :hover:enabled {
+    color: white;
+    background-color: black;
+  }
+  :disabled {
+    border: 2px solid lightgray;
   }
 `;

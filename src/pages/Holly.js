@@ -9,7 +9,9 @@ import {
   Audio,
   Transcript,
   TranscriptLink,
+  PDFButton,
 } from "../components/SharedComponents";
+import Modal from "react-modal";
 import { StyledReactModal } from "../components/SharedComponents";
 import holly from "../audio/holly.mp3";
 import ang from "../audio/me-holly.mp3";
@@ -19,6 +21,7 @@ import img1 from "../image/holly/2.1.jpg";
 import img2 from "../image/holly/2.2.jpg";
 
 const Holly = () => {
+  Modal.setAppElement("#root");
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
@@ -46,16 +49,16 @@ const Holly = () => {
         onRequestClose={() => setShowModal1(false)}
         shouldCloseOnOverlayClick={true}
       >
+        <PDFButton onClick={() => setShowModal1(false)}>CLOSE X</PDFButton>
         <SinglePage pdf={hollyZine} />
-        <button onClick={() => setShowModal1(false)}>Hide modal</button>
       </StyledReactModal>
       <StyledReactModal
         isOpen={showModal2}
         onRequestClose={() => setShowModal2(false)}
         shouldCloseOnOverlayClick={true}
       >
+        <PDFButton onClick={() => setShowModal2(false)}>CLOSE X</PDFButton>
         <SinglePage pdf={angZine} />
-        <button onClick={() => setShowModal2(false)}>Hide modal</button>
       </StyledReactModal>
       <Row>
         <ColGroup>
