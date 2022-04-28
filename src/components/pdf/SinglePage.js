@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Document, Page } from "react-pdf";
 import styled from "styled-components";
 import "./pdf.css";
+import { useWindowHeight } from "@wojtekmaj/react-hooks";
 
 const PageContainer = styled.div`
   max-height: 90vh;
@@ -68,6 +69,8 @@ export default function SinglePage(props) {
 
   const { pdf } = props;
 
+  const height = useWindowHeight();
+
   return (
     <PageContainer>
       <MyDocument
@@ -75,7 +78,7 @@ export default function SinglePage(props) {
         options={{ workerSrc: "/pdf.worker.js" }}
         onLoadSuccess={onDocumentLoadSuccess}
       >
-        <MyPage pageNumber={pageNumber} />
+        <MyPage pageNumber={pageNumber} height={Math.min(height * 0.6, 600)} />
       </MyDocument>
       <div>
         <PageNumber>
