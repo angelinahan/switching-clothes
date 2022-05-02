@@ -11,6 +11,10 @@ const AboutDiv = styled.div`
   }
 `;
 
+const InstaLink = styled.a`
+  color: #192e1f;
+`;
+
 const AboutPage = () => {
   return (
     <AppContainer>
@@ -30,13 +34,13 @@ const AboutPage = () => {
         <Row>
           <p>
             by Angelina Han //{" "}
-            <a
+            <InstaLink
               href="https://www.instagram.com/marigoldss/"
               target="_blank"
               rel="noreferrer"
             >
               @marigoldss
-            </a>
+            </InstaLink>
             <br /> with thanks to Reilly, Holly, Aileen, Kyle, and Ava for their
             participation and friendship ♡
           </p>
