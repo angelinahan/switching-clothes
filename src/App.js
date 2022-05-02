@@ -7,6 +7,7 @@ import img2 from "./image/covers/2.png";
 import img3 from "./image/covers/3.png";
 import img4 from "./image/covers/4.png";
 import img5 from "./image/covers/5.png";
+import img6 from "./image/covers/6.png";
 import { AppHeader } from "./components/AppHeader";
 import {
   AppContainer,
@@ -84,6 +85,7 @@ const App = () => {
           <ItemContainer>
             <LowkeyLink to="/angelina">
               <TitleH2>Epilogue: Angelina</TitleH2>
+              <CoverImg src={img6} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
         </ContentRow>

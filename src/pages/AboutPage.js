@@ -1,4 +1,4 @@
-import { AppContainer } from "../components/SharedComponents";
+import { AppContainer, Row } from "../components/SharedComponents";
 import { AppHeader } from "../components/AppHeader";
 import styled from "styled-components";
 
@@ -23,6 +23,21 @@ const AboutPage = () => {
           person’s clothes, and discussed realizations about our own clothing
           choices that emerged through this process.
         </p>
+        <Row>
+          <p>
+            by Angelina Han //{" "}
+            <a
+              href="https://www.instagram.com/marigoldss/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              @marigoldss
+            </a>
+            <br /> with thanks to Reilly, Holly, Aileen, Kyle, and Ava for their
+            participation and friendship ♡
+          </p>
+          <p></p>
+        </Row>
       </AboutDiv>
     </AppContainer>
   );
