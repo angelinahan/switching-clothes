@@ -3,12 +3,6 @@ import {
   TitleH1,
   PersonPageContainer,
   Row,
-  PersonImage,
-  ColGroup,
-  Audio,
-  Transcript,
-  TranscriptLink,
-  PDFButton,
 } from "../components/SharedComponents";
 import greenCoat from "../image/angelina/greencoat.png";
 import rockies from "../image/angelina/rockies.png";
@@ -59,11 +53,11 @@ const Angelina = () => {
           Before this, I viewed coats as purely functional, rather than adding
           to the aesthetic of the outfit. I thrifted this green coat in Paris
           over spring break, and it is the first coat I've had that is both warm
-          and fashionable. The cut also feels more feminine than previous coats
-          I've owned, which have all been boxy and sporty. Wearing this coat
-          makes me feel beautiful and elegant, which I've never experienced from
-          a coat before. I love the way dresses look under this, so I've also
-          been wearing dresses more since I got this coat.
+          and fashionable. The style also feels more feminine than previous
+          coats I've owned, which have all been boxy and sporty. Wearing this
+          coat makes me feel beautiful and elegant, which I've never experienced
+          from a coat before. I love the way dresses look under this, so I've
+          also been wearing dresses more since I got this coat.
         </HalfWidthP>
       </CenteredRow>
       <CenteredRow>
