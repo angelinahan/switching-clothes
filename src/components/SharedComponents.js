@@ -21,7 +21,13 @@ export const Audio = styled.audio`
   margin: 20px 0;
 `;
 
-export const TranscriptLink = styled.a`
+export const TranscriptLink = styled.button`
+  background-color: unset;
+  border: none;
+  font-family: "Space Mono", sans-serif;
+  padding: unset;
+  text-align: left;
+  font-size: 1em;
   margin: 10px 0;
   cursor: pointer;
   :hover {

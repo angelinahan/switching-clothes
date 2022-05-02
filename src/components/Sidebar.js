@@ -41,6 +41,9 @@ const Sidebar = () => {
       <LowkeyLink to="/ava">
         <h2>05. Ava</h2>
       </LowkeyLink>
+      <LowkeyLink to="/angelina">
+        <h2>Epilogue: Angelina</h2>
+      </LowkeyLink>
     </SidebarDiv>
   );
 };

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -24,19 +24,17 @@ const Kyle = () => {
   Modal.setAppElement("#root");
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [showTranscript1, setShowTranscript1] = useState(false);
+  const [showTranscript2, setShowTranscript2] = useState(false);
 
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-
-  const scrollToTranscript1 = () => {
-    if (ref1 && ref1.current) {
-      ref1.current.scrollIntoView();
-    }
+  const clickTranscript1 = () => {
+    const oldValue = showTranscript1;
+    setShowTranscript1(!oldValue);
   };
-  const scrollToTranscript2 = () => {
-    if (ref2 && ref2.current) {
-      ref2.current.scrollIntoView();
-    }
+
+  const clickTranscript2 = () => {
+    const oldValue = showTranscript2;
+    setShowTranscript2(!oldValue);
   };
 
   return (
@@ -65,13 +63,12 @@ const Kyle = () => {
           <Audio controls>
             <source src={kyle} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript1}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript1()}>
+            {showTranscript1 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
-          <Transcript ref={ref1}>
-            <b>ANGELINA</b> I’m curious how you felt in West Village H among the
-            CS people, compared to the people in your film class.
+          <Transcript hidden={!showTranscript1}>
+            <b>ANGELINA:</b> I’m curious how you felt in West Village H among
+            the CS people, compared to the people in your film class.
             <br />
             <br />
             <b>KYLE:</b> Erm…I dunno, I felt very like self aware in both
@@ -96,17 +93,17 @@ const Kyle = () => {
             generally I’m more conscious of myself in that class, so I was
             curious, maybe, what other people thought of what I was wearing.
           </Transcript>
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
         </ColGroup>
         <ColGroup>
           <Audio controls>
             <source src={ang} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript2}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript2()}>
+            {showTranscript2 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
-          <Transcript ref={ref2}>
-            <b>ANGELINA:</b> Like I know you love Billy Joel a lot
+          <Transcript hidden={!showTranscript2}>
+            <b>ANGELINA:</b> Like I know you love Billy Joel a lot.
             <br />
             <br />
             <b>KYLE:</b> Mm-hmm.
@@ -158,6 +155,7 @@ const Kyle = () => {
             <br />
             <br />
           </Transcript>
+          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
         </ColGroup>
         <ColGroup></ColGroup>
       </Row>

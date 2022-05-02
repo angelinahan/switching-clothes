@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { AppHeader } from "../components/AppHeader";
 import { Sidebar } from "../components/Sidebar";
-import { Reilly, Holly, Aileen, Kyle, Ava } from "./index";
+import { Reilly, Holly, Aileen, Kyle, Ava, Angelina } from "./index";
 import { AppContainer } from "../components/SharedComponents";
 
 const ItemPageContainer = styled.div`
@@ -35,6 +35,8 @@ const getPageByName = (name) => {
       return <Kyle />;
     case "ava":
       return <Ava />;
+    case "angelina":
+      return <Angelina />;
     default:
       return <Reilly />; //todo fix this to error page
   }

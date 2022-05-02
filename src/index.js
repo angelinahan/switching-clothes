@@ -21,6 +21,7 @@ root.render(
           <Route path="/aileen" element={<ItemPage name="aileen" />} />
           <Route path="/kyle" element={<ItemPage name="kyle" />} />
           <Route path="/ava" element={<ItemPage name="ava" />} />
+          <Route path="/angelina" element={<ItemPage name="angelina" />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </BrowserRouter>

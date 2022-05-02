@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -24,20 +24,17 @@ const Ava = () => {
   Modal.setAppElement("#root");
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [showTranscript1, setShowTranscript1] = useState(false);
+  const [showTranscript2, setShowTranscript2] = useState(false);
 
-  //Refs to help scroll to the transcript
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-
-  const scrollToTranscript1 = () => {
-    if (ref1 && ref1.current) {
-      ref1.current.scrollIntoView();
-    }
+  const clickTranscript1 = () => {
+    const oldValue = showTranscript1;
+    setShowTranscript1(!oldValue);
   };
-  const scrollToTranscript2 = () => {
-    if (ref2 && ref2.current) {
-      ref2.current.scrollIntoView();
-    }
+
+  const clickTranscript2 = () => {
+    const oldValue = showTranscript2;
+    setShowTranscript2(!oldValue);
   };
 
   return (
@@ -66,11 +63,10 @@ const Ava = () => {
           <Audio controls>
             <source src={ava} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript1}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript1()}>
+            {showTranscript1 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
-          <Transcript ref={ref1}>
+          <Transcript hidden={!showTranscript1}>
             <b>AVA:</b> When I looked in the mirror, I saw…I saw Angelina, but I
             also saw another version of myself, and it was - I looked upon
             myself with love, as I also look at Angelina with love. It was cool.
@@ -90,16 +86,16 @@ const Ava = () => {
             for it to be very conscious and even on purpose, is a different, is
             a change.
           </Transcript>
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
         </ColGroup>
         <ColGroup>
           <Audio controls>
             <source src={ang} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript2}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript2()}>
+            {showTranscript2 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
-          <Transcript ref={ref2}>
+          <Transcript hidden={!showTranscript2}>
             <b>ANGELINA:</b> When I put on the bow in the morning, I felt
             absolutely amazing, just the most main character energy ever. And
             the bow, combined with the really bright, eye-catching dress,
@@ -108,13 +104,13 @@ const Ava = () => {
             highlight.
             <br />
             <br />
-            In the afternoon, I went downtown, and I think that when the bubble
-            began to burst a little bit, because I noticed that I was getting
-            more unwanted attention from men than I usually get, and it was
-            really uncomfortable. It was unfortunate too, because in the morning
-            I was thinking to myself, “Wow, why don’t I dress like this more
-            often, this feels so amazing!” I think subconsciously I do try to
-            keep like a lower profile in a way, when I’m going out by myself,
+            In the afternoon, I went downtown, and I think that's when the
+            bubble began to burst a little bit, because I noticed that I was
+            getting more unwanted attention from men than I usually get, and it
+            was really uncomfortable. It was unfortunate too, because in the
+            morning I was thinking to myself, “Wow, why don’t I dress like this
+            more often, this feels so amazing!” I think subconsciously I do try
+            to keep like a lower profile in a way, when I’m going out by myself,
             avoiding wearing certain clothing that I otherwise might want to
             wear, because I don’t want to draw attention to myself, or make
             myself look more delicate and vulnerable and a target to people who
@@ -133,6 +129,7 @@ const Ava = () => {
             I think I’ll try to incorporate more clothing that makes me feel
             super happy like this in my normal outfits.
           </Transcript>
+          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
         </ColGroup>
         <ColGroup></ColGroup>
       </Row>

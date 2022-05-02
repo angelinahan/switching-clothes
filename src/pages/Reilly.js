@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -24,20 +24,17 @@ const Reilly = () => {
   Modal.setAppElement("#root");
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [showTranscript1, setShowTranscript1] = useState(false);
+  const [showTranscript2, setShowTranscript2] = useState(false);
 
-  //Refs to help scroll to the transcript
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-
-  const scrollToTranscript1 = () => {
-    if (ref1 && ref1.current) {
-      ref1.current.scrollIntoView();
-    }
+  const clickTranscript1 = () => {
+    const oldValue = showTranscript1;
+    setShowTranscript1(!oldValue);
   };
-  const scrollToTranscript2 = () => {
-    if (ref2 && ref2.current) {
-      ref2.current.scrollIntoView();
-    }
+
+  const clickTranscript2 = () => {
+    const oldValue = showTranscript2;
+    setShowTranscript2(!oldValue);
   };
 
   return (
@@ -66,11 +63,10 @@ const Reilly = () => {
           <Audio controls>
             <source src={reilly} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript1}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript1()}>
+            {showTranscript1 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
-          <Transcript ref={ref1}>
+          <Transcript hidden={!showTranscript1}>
             <b>REILLY:</b> When you first brought up the topic of
             clothes-switching, it made me immediately think, “Oh, what is my
             sense of style?”. I don’t think I have a strong sense. I wore a
@@ -86,16 +82,16 @@ const Reilly = () => {
             super happy the trends have gone more from skinny jeans into loose
             fitting whatever, because now I’m wearing jeans a lot more again.
           </Transcript>
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
         </ColGroup>
         <ColGroup>
           <Audio controls>
             <source src={ang} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript2}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript2()}>
+            {showTranscript2 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
-          <Transcript ref={ref2}>
+          <Transcript hidden={!showTranscript2}>
             <b>ANGELINA:</b> Sometimes with clothes I purposefully pick
             something that looks, you know, “artsy” or “creative” when I go meet
             people who I know are- <br />
@@ -112,6 +108,7 @@ const Reilly = () => {
             <br />
             <b>REILLY:</b> Yeah. [laughs]
           </Transcript>
+          <PersonImage src={img1} onClick={() => setShowModal2(true)} />
         </ColGroup>
         <ColGroup></ColGroup>
       </Row>

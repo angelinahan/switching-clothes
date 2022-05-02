@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import SinglePage from "../components/pdf/SinglePage";
 import {
   TitleH1,
@@ -24,20 +24,17 @@ const Aileen = () => {
   Modal.setAppElement("#root");
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [showTranscript1, setShowTranscript1] = useState(false);
+  const [showTranscript2, setShowTranscript2] = useState(false);
 
-  //Refs to help scroll to the transcript
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-
-  const scrollToTranscript1 = () => {
-    if (ref1 && ref1.current) {
-      ref1.current.scrollIntoView();
-    }
+  const clickTranscript1 = () => {
+    const oldValue = showTranscript1;
+    setShowTranscript1(!oldValue);
   };
-  const scrollToTranscript2 = () => {
-    if (ref2 && ref2.current) {
-      ref2.current.scrollIntoView();
-    }
+
+  const clickTranscript2 = () => {
+    const oldValue = showTranscript2;
+    setShowTranscript2(!oldValue);
   };
 
   return (
@@ -66,11 +63,10 @@ const Aileen = () => {
           <Audio controls>
             <source src={aileen} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript1}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript1()}>
+            {showTranscript1 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
-          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
-          <Transcript ref={ref1}>
+          <Transcript hidden={!showTranscript1}>
             <b>AILEEN:</b> I would see myself wearing a nice chunky sweater, I
             just don’t have a lot of those, because I think I still dress for
             California a lot of the time…ah! That’s a good way to put it! I
@@ -89,16 +85,38 @@ const Aileen = () => {
             <br />
             <b>ANGELINA:</b> [overlapping] [laughs]
           </Transcript>
+          <PersonImage src={img2} onClick={() => setShowModal1(true)} />
         </ColGroup>
         <ColGroup>
           <Audio controls>
             <source src={ang} type="audio/mpeg"></source>
           </Audio>
-          <TranscriptLink onClick={scrollToTranscript2}>
-            jump to transcript
+          <TranscriptLink onClick={() => clickTranscript2()}>
+            {showTranscript2 ? "hide transcript" : "show transcript"}
           </TranscriptLink>
+          <Transcript hidden={!showTranscript2}>
+            <b>ANGELINA:</b> I’ve realized through switching clothes with Aileen
+            that I have a really complicated relationship with wearing
+            stereotypically feminine clothing such as the top that she gave me.
+            On one hand, it makes me feel really delicate, fairylike, and
+            beautiful, but on the other hand, when I go out in public wearing
+            something like that, I find that I’m much more conscious of my body
+            and the space I take up. I think that I have avoided clothing that
+            is very hyper-feminine in my usual style because I’m afraid of how
+            people will react. When I wear something that’s traditionally, like,
+            hyper-feminine, like something with ruffles, dresses, anything like
+            that, in public, people tend to see me as just “pretty” - and I want
+            to be seen as so much more than that. I want to be seen for my
+            personality, for my thoughts…even though, I, of course you can be
+            all three at once, they’re not mutually exclusive, but I have found,
+            when I dress in a “pretty” way, people tend to focus on that. And…I
+            really don’t like that feeling, so I have tried to dress in a way
+            that says “I’m interesting! I have thoughts, ask me about them!”.
+            But, I do think that having this mindset has kept me from wearing a
+            lot of clothing that I would’ve enjoyed wearing. I do like feeling
+            pretty and delicate sometimes.
+          </Transcript>
           <PersonImage src={img1} onClick={() => setShowModal2(true)} />
-          <Transcript ref={ref2}></Transcript>
         </ColGroup>
         <ColGroup></ColGroup>
       </Row>

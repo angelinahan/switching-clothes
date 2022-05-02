@@ -52,37 +52,37 @@ const App = () => {
       <ContentContainer>
         <ContentRow>
           <ItemContainer>
-            <LowkeyLink to="reilly">
+            <LowkeyLink to="/reilly">
               <TitleH2>01. Reilly</TitleH2>
               <CoverImg src={img1} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
-            <LowkeyLink to="holly">
+            <LowkeyLink to="/holly">
               <TitleH2>02. Holly</TitleH2>
               <CoverImg src={img2} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
-            <LowkeyLink to="aileen">
+            <LowkeyLink to="/aileen">
               <TitleH2>03. Aileen</TitleH2>
               <CoverImg src={img3} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
-            <LowkeyLink to="kyle">
+            <LowkeyLink to="/kyle">
               <TitleH2>04. Kyle</TitleH2>
               <CoverImg src={img4} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
-            <LowkeyLink to="ava">
+            <LowkeyLink to="/ava">
               <TitleH2>05. Ava</TitleH2>
               <CoverImg src={img5} alt="covers" />
             </LowkeyLink>
           </ItemContainer>
           <ItemContainer>
-            <LowkeyLink to="final-thoughts">
+            <LowkeyLink to="/angelina">
               <TitleH2>Epilogue: Angelina</TitleH2>
             </LowkeyLink>
           </ItemContainer>
