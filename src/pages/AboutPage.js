@@ -5,6 +5,10 @@ import styled from "styled-components";
 const AboutDiv = styled.div`
   width: 50%;
   margin: 10% auto;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    margin: 5% auto;
+  }
 `;
 
 const AboutPage = () => {

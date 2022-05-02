@@ -37,7 +37,7 @@ const ItemContainer = styled.div`
     transition: transform 0.2s;
   }
   @media only screen and (max-width: 600px) {
-    width: 45%;
+    width: 100%;
   }
 `;
 
